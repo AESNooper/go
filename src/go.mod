@@ -1,4 +1,4 @@
-module github.com/AESNooper/go
+module github.com/AESNooper/go/src
 
 go 1.17
 
