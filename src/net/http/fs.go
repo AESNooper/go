@@ -334,7 +334,12 @@ func serveContent(w ResponseWriter, r *Request, name string, modtime time.Time, 
 	w.WriteHeader(code)
 
 	if r.Method != "HEAD" {
-		io.CopyN(w, sendContent, sendSize)
+		if sendSize != 0 {
+			io.CopyN(w, sendContent, sendSize)
+			return
+		}mpz_neg
+
+		io.Copy(w, sendContent)
 	}
 }
 
