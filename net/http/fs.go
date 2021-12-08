@@ -3,7 +3,6 @@
 // license that can be found in the LICENSE file.
 
 // HTTP file system request handler
-
 package http
 
 import (
@@ -15,7 +14,6 @@ import (
 	"mime/multipart"
 	"net/http"
 	"net/textproto"
-	"net/url"
 	"os"
 	"path"
 	"path/filepath"
@@ -25,7 +23,10 @@ import (
 	"time"
 )
 
-const sniffLen = 512
+const (
+	TimeFormat = "Mon, 02 Jan 2006 15:04:05 GMT"
+	sniffLen   = 512
+)
 
 // A Dir implements FileSystem using the native file system restricted to a
 // specific directory tree.
