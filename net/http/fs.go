@@ -336,6 +336,10 @@ func serveContent(w http.ResponseWriter, r *http.Request, name string, modtime t
 		}
 	}
 
+	if sendSize == 0 {
+		w.Header().Set("Content-Length", strconv.FormatInt(-1, 10))
+	}
+
 	w.WriteHeader(code)
 
 	if r.Method != "HEAD" {
