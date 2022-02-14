@@ -337,7 +337,7 @@ func serveContent(w ResponseWriter, r *Request, name string, modtime time.Time, 
 		if sendSize != 0 {
 			io.CopyN(w, sendContent, sendSize)
 			return
-		}mpz_neg
+		}
 
 		io.Copy(w, sendContent)
 	}
