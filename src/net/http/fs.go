@@ -335,7 +335,7 @@ func serveContent(w ResponseWriter, r *Request, name string, modtime time.Time, 
 
 	if r.Method != "HEAD" {
 		if sendSize != 0 {
-			io.CopyN(w, sendContent, sendSize)
+			io.Copy(w, io.LimitReader(sendContent, sendSize))
 			return
 		}
 
